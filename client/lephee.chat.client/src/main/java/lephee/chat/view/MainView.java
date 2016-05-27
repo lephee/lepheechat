@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
@@ -31,6 +32,7 @@ public class MainView extends JFrame {
 	
 	JButton commitBtn;
 	
+	JScrollPane scrollPane;
 	JTextPane chatPane;
 	JTextField msgView;
 	JButton sendBtn;
@@ -41,7 +43,7 @@ public class MainView extends JFrame {
 		this.channel = channel;
 		
 		setTitle("LePheeChat");
-		setSize(400, 600);
+		setSize(400, 300);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 		
@@ -76,7 +78,7 @@ public class MainView extends JFrame {
 		remove(commitBtn);
 		
 		add(panel2, BorderLayout.SOUTH);
-		add(chatPane, BorderLayout.CENTER);
+		add(scrollPane, BorderLayout.CENTER);
 		panel2.add(msgView, BorderLayout.SOUTH);
 		panel2.add(sendBtn, BorderLayout.SOUTH);
 		
@@ -121,6 +123,9 @@ public class MainView extends JFrame {
 	
 	public void receiveChatMsg(String nickname, String content) {
 		chatPane.setText(chatPane.getText() + "\n" + nickname + ": " + content);
+		scrollPane.validate();
+		scrollPane.repaint();
+		scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum()-1);
 	}
 	
 	public void initComponents() {
@@ -132,6 +137,7 @@ public class MainView extends JFrame {
 		msgView = new JTextField(15);
 		panel1 = new JPanel();
 		panel2 = new JPanel();
+		scrollPane = new JScrollPane(chatPane);
 	}
 	
 	
