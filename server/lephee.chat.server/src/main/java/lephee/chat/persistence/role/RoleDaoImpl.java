@@ -77,4 +77,8 @@ public class RoleDaoImpl implements RoleDao{
 		return null;
 	}
 
+	public List<Role> queryAll() {
+		return datastore.createQuery(Role.class).order("createDate").asList();
+	}
+
 }

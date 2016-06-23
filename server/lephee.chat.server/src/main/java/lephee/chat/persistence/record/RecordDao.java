@@ -1,5 +1,7 @@
 package lephee.chat.persistence.record;
 
+import java.util.List;
+
 import lephee.chat.persistence.record.Record;
 
 public interface RecordDao {
@@ -13,5 +15,7 @@ public interface RecordDao {
 	public Record queryByName(String name);
 	
 	public Record queryById(int id);
+
+	public List<Record> queryAll();
 	
 }

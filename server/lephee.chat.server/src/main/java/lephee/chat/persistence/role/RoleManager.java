@@ -1,5 +1,7 @@
 package lephee.chat.persistence.role;
 
+import java.util.List;
+
 import lephee.chat.util.ChatUtil;
 
 public class RoleManager {
@@ -41,6 +43,10 @@ public class RoleManager {
 	
 	public int getMaxRoleId() {
 		return dao.getMaxRoleId();
+	}
+	
+	public List<Role> getAllRole() {
+		return dao.queryAll();
 	}
 	
 	public Role checkRole(String username, String password) {

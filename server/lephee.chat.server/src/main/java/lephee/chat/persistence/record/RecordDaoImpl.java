@@ -63,4 +63,8 @@ public class RecordDaoImpl implements RecordDao{
 		return (int) datastore.getCount(Record.class);
 	}
 
+	public List<Record> queryAll() {
+		return datastore.createQuery(Record.class).order("sendTime").asList();
+	}
+
 }

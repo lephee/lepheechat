@@ -1,5 +1,7 @@
 package lephee.chat.persistence.record;
 
+import java.util.List;
+
 public class RecordManager {
 	
 	RecordDao dao = new RecordDaoImpl();
@@ -31,6 +33,10 @@ public class RecordManager {
 	
 	public void delete(Record role) {
 		dao.remove(role);
+	}
+	
+	public List<Record> getAllHistory() {
+		return dao.queryAll();
 	}
 	
 	public static void main(String[] args) {

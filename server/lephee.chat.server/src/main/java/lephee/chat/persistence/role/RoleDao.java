@@ -1,5 +1,7 @@
 package lephee.chat.persistence.role;
 
+import java.util.List;
+
 public interface RoleDao {
 	
 	public void insert(Role role);
@@ -15,5 +17,8 @@ public interface RoleDao {
 	public Role queryById(int id);
 	
 	public int getMaxRoleId();
+
+	public List<Role> queryAll();
+
 	
 }
