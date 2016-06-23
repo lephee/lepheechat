@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello World!</title>
+</head>
+<body>
+
+
+	<form action="/chat/login" onsubmit="return validate();">
+		username: <input id="unm" name="u" type="text" required="required" autofocus="autofocus" pattern="^[a-zA-Z][a-zA-Z0-9_]{4,15}"
+		title="4-15位字母或者数字"></input> <br> 
+		password: <input id="pwd"	name="p" type="password" required="required" pattern="^[a-zA-Z]\w{5,17}$" title="5-17位字母数字组合"></input>
+		<div>
+			<input value="Login" type="submit">
+		</div>
+	</form>
+
+
+</body>
+
+<script type="text/javascript">
+	function validate() {
+		var reg = ^[a-zA-Z][a-zA-Z0-9_]{4,15};
+		var pswreg = ^[a-zA-Z]\w{5,17}$;
+		var val = document.getElementById("unm").value;
+		var val2 = document.getElementById("pwd").value;
+		if (val.match(reg) && val2.match(pswreg)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
+</html>
