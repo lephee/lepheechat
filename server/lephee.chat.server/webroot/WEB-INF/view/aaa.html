@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<h1 style="text-align: center;" align="center">
+		<span>GM</span><span style="font-family: 宋体;">命令大全</span><span></span>
+	</h1>
+	<p class="MsoNormal">
+		<strong><span style="font-family: 宋体;">说明</span></strong><strong><span
+			style="font-family: &amp; quot;"> : </span></strong><strong><span
+			style="font-family: 宋体;">命令参数有顺序需求</span></strong><strong><span
+			style="font-family: &amp; quot;">, </span></strong><strong><span
+			style="font-family: 宋体;">分隔符是英文空格</span></strong><strong><span
+			style="font-family: &amp; quot;">. [ ]</span></strong><strong><span
+			style="font-family: 宋体;">括起来的参数</span></strong><strong><span
+			style="font-family: &amp; quot;"> </span></strong><strong><span
+			style="font-family: 宋体;">表示是可选参数</span></strong><strong><span
+			style="font-family: &amp; quot;"></span></strong>
+	</p>
+	<p class="MsoNormal">
+		<strong><span style="font-family: 宋体;">正式命令列表如下</span></strong><strong><span
+			style="font-family: &amp; quot;">:</span></strong>
+	</p>
+	<p class="MsoNormal">
+		<strong><span style="font-family: &amp; quot;">&nbsp;</span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span
+			style="font-family: Wingdings; font-weight: normal;"><span>l<span>&nbsp;
+				</span></span></span></strong><strong><span style="font-family: &amp; quot;">#account
+				user N [passs]<span>&nbsp; </span>
+		</span></strong><strong><span style="font-family: 宋体;">创建</span></strong><strong><span
+			style="font-family: &amp; quot;">N</span></strong><strong><span
+			style="font-family: 宋体;">个账号</span></strong><strong><span
+			style="font-family: &amp; quot;">,</span></strong><strong><span
+			style="font-family: 宋体;">创建的账号如</span></strong><strong><span
+			style="font-family: &amp; quot;"> <span>user,user1,user2…userN-1<span>&nbsp;
+				</span><span>&nbsp;</span>pass
+			</span></span></strong><strong><span style="font-family: 宋体;">默认是</span></strong><strong><span
+			style="font-family: &amp; quot;">123</span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: 0cm;">
+		<strong><span style="font-family: &amp; quot;">&nbsp;</span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span
+			style="font-family: Wingdings; font-weight: normal;"><span>l<span>&nbsp;
+				</span></span></span></strong><strong><span style="font-family: &amp; quot;">#getcard
+				id [N]<span>&nbsp;&nbsp; </span>
+		</span></strong><strong><span style="font-family: 宋体;">获取</span></strong><strong><span
+			style="font-family: &amp; quot;">N</span></strong><strong><span
+			style="font-family: 宋体;">张指定</span></strong><strong><span
+			style="font-family: &amp; quot;">id</span></strong><strong><span
+			style="font-family: 宋体;">的卡牌</span></strong><strong><span
+			style="font-family: &amp; quot;">. </span></strong><strong><span
+			style="font-family: 宋体;">如果已拥有此卡牌</span></strong><strong><span
+			style="font-family: &amp; quot;">,</span></strong><strong><span
+			style="font-family: 宋体;">则增加数量</span></strong><strong><span
+			style="font-family: &amp; quot;">. </span></strong><strong><span
+			style="font-family: 宋体;">当</span></strong><strong><span
+			style="font-family: &amp; quot;">N&lt;0</span></strong><strong><span
+			style="font-family: 宋体;">时表示扣除</span></strong><strong><span
+			style="font-family: &amp; quot;">N</span></strong><strong><span
+			style="font-family: 宋体;">张卡</span></strong><strong><span
+			style="font-family: &amp; quot;">. <span>&nbsp;</span>N
+		</span></strong><strong><span style="font-family: 宋体;">默认是</span></strong><strong><span
+			style="font-family: &amp; quot;">1.<span>&nbsp; </span></span></strong><strong><span
+			style="font-family: 宋体;">当</span></strong><strong><span
+			style="font-family: &amp; quot;">id==0</span></strong><strong><span
+			style="font-family: 宋体;">时</span></strong><strong><span
+			style="font-family: &amp; quot;">,</span></strong><strong><span
+			style="font-family: 宋体;">表示清空所有卡牌</span></strong><strong><span
+			style="font-family: &amp; quot;">,</span></strong><strong><span
+			style="font-family: 宋体;">并重新初始化卡牌</span></strong><strong><span
+			style="font-family: &amp; quot;"></span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: 0cm;">
+		<strong><span style="font-family: &amp; quot;">&nbsp;</span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span
+			style="font-family: Wingdings; font-weight: normal;"><span>l<span>&nbsp;
+				</span></span></span></strong><strong><span style="font-family: &amp; quot;">#battle
+				user<span>&nbsp; </span>
+		</span></strong><strong><span style="font-family: 宋体;">无需匹配</span></strong><strong><span
+			style="font-family: &amp; quot;">,</span></strong><strong><span
+			style="font-family: 宋体;">直接与</span></strong><strong><span
+			style="font-family: &amp; quot;">user</span></strong><strong><span
+			style="font-family: 宋体;">玩家进入战场</span></strong><strong><span
+			style="font-family: &amp; quot;"> (user</span></strong><strong><span
+			style="font-family: 宋体;">必须在线</span></strong><strong><span
+			style="font-family: &amp; quot;">)</span></strong>
+	</p>
+	<p class="MsoListParagraph" style="text-indent: 21.1pt;">
+		<strong><span style="font-family: &amp; quot;">&nbsp;</span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span
+			style="font-family: Wingdings; font-weight: normal;"><span>l<span>&nbsp;
+				</span></span></span></strong><strong><span style="font-family: &amp; quot;">#grade
+				N<span>&nbsp; </span>
+		</span></strong><strong><span style="font-family: 宋体;">直接设置等级，</span></strong><strong><span
+			style="font-family: &amp; quot;">N</span></strong><strong><span
+			style="font-family: 宋体;">必须大于</span></strong><strong><span
+			style="font-family: &amp; quot;">0</span></strong><strong><span
+			style="font-family: 宋体;">，</span></strong><strong><span
+			style="font-family: &amp; quot;"> </span></strong><strong><span
+			style="font-family: 宋体;">当</span></strong><strong><span
+			style="font-family: &amp; quot;">N</span></strong><strong><span
+			style="font-family: 宋体;">小于当前等级，表示降级</span></strong><strong><span
+			style="font-family: &amp; quot;"></span></strong>
+	</p>
+	<p class="MsoNormal">
+		<strong><span style="font-family: &amp; quot;"><span>&nbsp;</span></span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span
+			style="font-family: Wingdings; font-weight: normal;"><span>l<span>&nbsp;
+				</span></span></span></strong><strong><span style="font-family: &amp; quot;">#exp
+				N </span></strong><strong><span style="font-family: 宋体;">增加经验值，当</span></strong><strong><span
+			style="font-family: &amp; quot;">N&lt;0 </span></strong><strong><span
+			style="font-family: 宋体;">表示扣除经验</span></strong><strong><span
+			style="font-family: &amp; quot;"></span></strong>
+	</p>
+	<p class="MsoListParagraph" style="text-indent: 21.1pt;">
+		<strong><span style="font-family: &amp; quot;">&nbsp;</span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span
+			style="font-family: Wingdings; font-weight: normal;"><span>l<span>&nbsp;
+				</span></span></span></strong><strong><span style="font-family: &amp; quot;">#sp N<span>&nbsp;
+			</span></span></strong><strong><span style="font-family: 宋体;">增加体力值，当</span></strong><strong><span
+			style="font-family: &amp; quot;">N&lt;0 </span></strong><strong><span
+			style="font-family: 宋体;">表示减少体力</span></strong><strong><span
+			style="font-family: &amp; quot;"></span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: 0cm;">
+		<strong><span style="font-family: &amp; quot;">&nbsp;</span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span
+			style="font-family: Wingdings; font-weight: normal;"><span>l<span>&nbsp;
+				</span></span></span></strong><strong><span style="font-family: &amp; quot;">#getunit
+				starId [grade]<span>&nbsp; </span>
+		</span></strong><strong><span style="font-family: 宋体;">获取单位，</span></strong><strong><span
+			style="font-family: &amp; quot;">starId</span></strong><strong><span
+			style="font-family: 宋体;">为</span></strong><strong><span
+			style="font-family: &amp; quot;">s_star</span></strong><strong><span
+			style="font-family: 宋体;">表</span></strong><strong><span
+			style="font-family: &amp; quot;">id</span></strong><strong><span
+			style="font-family: 宋体;">，</span></strong><strong><span
+			style="font-family: &amp; quot;">grade</span></strong><strong><span
+			style="font-family: 宋体;">为单位等级，等级可以不填默认为</span></strong><strong><span
+			style="font-family: &amp; quot;">1</span></strong><strong><span
+			style="font-family: 宋体;">级</span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span style="font-family: 宋体;"></span></strong><strong><span
+			style="font-family: &amp; quot;"></span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span style="font-family: &amp; quot;">&nbsp;</span><span
+			style="font-family: Wingdings; font-weight: normal;"><span><br />
+			</span></span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<strong><span
+			style="font-family: Wingdings; font-weight: normal;"><span>l<span>&nbsp;
+				</span></span></span></strong><strong><span style="font-family: &amp; quot;">#gold
+				num<span>&nbsp; </span>
+		</span></strong><strong><span style="font-family: 宋体;">获得军费，可以为负数</span></strong><strong><span
+			style="font-family: 宋体;"></span></strong>
+	</p>
+	<p class="MsoListParagraph"
+		style="margin-left: 21.0pt; text-indent: -21.0pt;">
+		<br />
+	</p>
+	<br />
+	<strong><span style="font-family: 宋体;"></span></strong>
+	<strong><span style="font-family: &amp; quot;"></span></strong>
+	<p>
+		<br />
+	</p>
+	<br />
+
+
+</body>
+</html>
