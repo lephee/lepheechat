@@ -2,9 +2,7 @@ package lephee.chat.client;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import lephee.chat.client.msg.ChatMsg1003;
 import lephee.chat.msgutil.Msg;
-import lephee.chat.view.MainView;
 
 public class ChatClientHandler extends ChannelInboundHandlerAdapter {
 

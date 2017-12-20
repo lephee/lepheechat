@@ -2,12 +2,8 @@ package lephee.chat.client;
 
 import java.util.List;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelOutboundHandlerAdapter;
-import io.netty.channel.ChannelPromise;
 import io.netty.handler.codec.MessageToMessageEncoder;
 import lephee.chat.msgutil.Msg;
 

@@ -10,7 +10,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.concurrent.GenericFutureListener;
-import lephee.chat.client.msg.LoginMsg1001;
 import lephee.chat.view.MainView;
 
 public class ChatClient {

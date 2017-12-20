@@ -21,6 +21,11 @@ import lephee.chat.client.msg.LoginMsg1001;
 
 public class MainView extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 814281195192636361L;
+
 	Channel channel;
 	
 	JPanel panel1;
