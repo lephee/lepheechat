@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
-import lephee.chat.persistence.record.Record;
-import lephee.chat.persistence.record.RecordManager;
 import lephee.chat.persistence.role.Role;
 import lephee.chat.persistence.role.RoleManager;
 

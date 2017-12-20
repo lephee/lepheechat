@@ -8,13 +8,244 @@
 
 
 	<form action="/chat/login" onsubmit="return validate();">
-		username: <input id="unm" name="u" type="text" required="required" autofocus="autofocus" pattern="^[a-zA-Z][a-zA-Z0-9_]{4,15}"
-		title="4-15位字母或者数字"></input> <br> 
-		password: <input id="pwd"	name="p" type="password" required="required" pattern="^[a-zA-Z]\w{5,17}$" title="5-17位字母数字组合"></input>
+		username: <input id="unm" name="u" type="text" required="required"
+			autofocus="autofocus" pattern="^[a-zA-Z][a-zA-Z0-9_]{4,15}"
+			title="4-15位字母或者数字"></input> <br> password: <input id="pwd"
+			name="p" type="password" required="required"
+			pattern="^[a-zA-Z]\w{5,17}$" title="5-17位字母数字组合"></input>
 		<div>
 			<input value="Login" type="submit">
 		</div>
 	</form>
+
+	<table border="1">
+		<tbody>
+			<tr>
+				<td valign="top">
+					<p>.proto类型</p>
+				</td>
+				<td valign="top">
+					<p>Java 类型</p>
+				</td>
+				<td valign="top">
+					<p>C++类型</p>
+				</td>
+				<td valign="top">
+					<p>备注</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>double</p>
+				</td>
+				<td valign="top">
+					<p>double</p>
+				</td>
+				<td valign="top">
+					<p>double</p>
+				</td>
+				<td valign="top">
+					<p>&nbsp;</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>float</p>
+				</td>
+				<td valign="top">
+					<p>float</p>
+				</td>
+				<td valign="top">
+					<p>float</p>
+				</td>
+				<td valign="top">
+					<p>&nbsp;</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>int32</p>
+				</td>
+				<td valign="top">
+					<p>int</p>
+				</td>
+				<td valign="top">
+					<p>int32</p>
+				</td>
+				<td valign="top">
+					<p>使用可变长编码方式。编码负数时不够高效——如果你的字段可能含有负数，那么请使用sint32。</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>int64</p>
+				</td>
+				<td valign="top">
+					<p>long</p>
+				</td>
+				<td valign="top">
+					<p>int64</p>
+				</td>
+				<td valign="top">
+					<p>使用可变长编码方式。编码负数时不够高效——如果你的字段可能含有负数，那么请使用sint64。</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>uint32</p>
+				</td>
+				<td valign="top">
+					<p>int[1]</p>
+				</td>
+				<td valign="top">
+					<p>uint32</p>
+				</td>
+				<td valign="top">
+					<p>
+						<span>Uses variable-length encoding.</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>uint64</p>
+				</td>
+				<td valign="top">long[1]</td>
+				<td valign="top">uint64</td>
+				<td valign="top"><span>Uses variable-length encoding.</span></td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>sint32</p>
+				</td>
+				<td valign="top">
+					<p>int</p>
+				</td>
+				<td valign="top">
+					<p>int32</p>
+				</td>
+				<td valign="top">
+					<p>使用可变长编码方式。有符号的整型值。编码时比通常的int32高效。</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>sint64</p>
+				</td>
+				<td valign="top">
+					<p>long</p>
+				</td>
+				<td valign="top">
+					<p>int64</p>
+				</td>
+				<td valign="top">
+					<p>使用可变长编码方式。有符号的整型值。编码时比通常的int64高效。</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>fixed32</p>
+				</td>
+				<td valign="top">
+					<p>int[1]</p>
+				</td>
+				<td valign="top">
+					<p>uint32</p>
+				</td>
+				<td valign="top">
+					<p>
+						总是4个字节。如果数值总是比总是比2<sup>28</sup>大的话，这个类型会比uint32高效。
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>fixed64</p>
+				</td>
+				<td valign="top">
+					<p>long[1]</p>
+				</td>
+				<td valign="top">
+					<p>uint64</p>
+				</td>
+				<td valign="top">
+					<p>
+						总是8个字节。如果数值总是比总是比2<sup>56</sup>大的话，这个类型会比uint64高效。
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>sfixed32</p>
+				</td>
+				<td valign="top">
+					<p>int</p>
+				</td>
+				<td valign="top">
+					<p>int32</p>
+				</td>
+				<td valign="top">
+					<p>总是4个字节。</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>sfixed64</p>
+				</td>
+				<td valign="top">
+					<p>long</p>
+				</td>
+				<td valign="top">
+					<p>int64</p>
+				</td>
+				<td valign="top">
+					<p>总是8个字节。</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>bool</p>
+				</td>
+				<td valign="top">
+					<p>boolean</p>
+				</td>
+				<td valign="top">
+					<p>bool</p>
+				</td>
+				<td valign="top">
+					<p>&nbsp;</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>string</p>
+				</td>
+				<td valign="top">
+					<p>String</p>
+				</td>
+				<td valign="top">
+					<p>string</p>
+				</td>
+				<td valign="top">
+					<p>一个字符串必须是UTF-8编码或者7-bit ASCII编码的文本。</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<p>bytes</p>
+				</td>
+				<td valign="top">
+					<p>ByteString</p>
+				</td>
+				<td valign="top">
+					<p>string</p>
+				</td>
+				<td valign="top">
+					<p>可能包含任意顺序的字节数据。</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 
 
 </body>

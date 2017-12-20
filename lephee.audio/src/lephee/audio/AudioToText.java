@@ -6,24 +6,20 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.filechooser.FileSystemView;
 
 import com.iflytek.cloud.speech.LexiconListener;
 import com.iflytek.cloud.speech.RecognizerListener;
 import com.iflytek.cloud.speech.RecognizerResult;
-import com.iflytek.cloud.speech.Setting;
 import com.iflytek.cloud.speech.SpeechConstant;
 import com.iflytek.cloud.speech.SpeechError;
 import com.iflytek.cloud.speech.SpeechRecognizer;
-import com.iflytek.cloud.speech.SpeechSynthesizer;
 import com.iflytek.cloud.speech.SpeechUtility;
-import com.iflytek.cloud.speech.SynthesizeToUriListener;
 import com.iflytek.cloud.speech.UserWords;
 
 public class AudioToText {
@@ -37,6 +33,8 @@ public class AudioToText {
 	private static StringBuffer mResult = new StringBuffer();
 	
 	private LepheeRecognizerListener recListener;
+	
+	public AtomicBoolean b = new AtomicBoolean(false);
 
 	public static void main(String args[]) {
 		try {
@@ -119,10 +117,18 @@ public class AudioToText {
 			recognizer.setParameter(SpeechConstant.AUDIO_SOURCE, "-1");
 			recognizer.setParameter(SpeechConstant.RESULT_TYPE, "plain");
 			recognizer.startListening(recListener);
-			ArrayList<byte[]> buffers = splitBuffer(voiceBuffer, voiceBuffer.length, 4800);
+			ArrayList<byte[]> buffers = splitBuffer(voiceBuffer, voiceBuffer.length, 48000);
 			for (int i = 0; i < buffers.size(); i++) {
 				// 每次写入msc数据4.8K,相当150ms录音数据
+				if (b.get()) {
+//					i--;
+					recognizer.stopListening();
+					recognizer.startListening(recListener);
+					b.getAndSet(false);
+					continue;
+				}
 				recognizer.writeAudio(buffers.get(i), 0, buffers.get(i).length);
+				System.out.println("write:" + i + ", total:"+buffers.size());
 				try {
 					Thread.sleep(150);
 				} catch (InterruptedException e) {
@@ -130,6 +136,7 @@ public class AudioToText {
 				}
 			}
 			recognizer.stopListening();
+			System.out.println("听完了啊啊");
 		}
 	}
 
@@ -191,63 +198,66 @@ public class AudioToText {
 
 		public void onEndOfSpeech() {
 			DebugLog.Log("onEndOfSpeech enter");
+			b.getAndSet(true);
 		}
 
 		public void onVolumeChanged(int volume) {
-
+//			DebugLog.Log( "onVolumeChanged enter" );
+//			if (volume > 0)
+//				DebugLog.Log("*************音量值:" + volume + "*************");
 		}
 
 		public void onResult(RecognizerResult result, boolean islast) {
 			mResult.append(result.getResultString());
-
+			DebugLog.Log( "onResult enter" );
 			if (islast) {
 				System.out.println("结果：\n" + mResult.toString());
-				final String resultStr = mResult.toString();
-				Thread t = new Thread(new Runnable() {
-					public void run() {
-						File f = new File(fileName + ".txt");
-						if (f.exists()) {
-							f = new File(fileName + "_" + System.currentTimeMillis() + ".txt");
-							try {
-								f.createNewFile();
-							} catch (IOException e) {
-								e.printStackTrace();
-								System.out.println("==============错误：创建文件失败============");
-							}
-						} else {
-							try {
-								new File("result").mkdirs();
-								f.createNewFile();
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-						}
-						FileOutputStream fos = null;
-						try {
-							fos = new FileOutputStream(f);
-							fos.write(resultStr.getBytes());
-							System.out.println("==============结果已经保存到" + f.getAbsolutePath());
-							JOptionPane.showMessageDialog(null, "成功，结果已经保存到" + f.getAbsolutePath());
-						} catch (FileNotFoundException e) {
-							e.printStackTrace();
-						} catch (IOException e) {
-							e.printStackTrace();
-						} finally {
-							try {
-								fos.close();
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-						}
-					}
-				});
-				t.start();
-				try {
-					t.join();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				mResult.delete(0, mResult.length());
+//				final String resultStr = mResult.toString();
+//				Thread t = new Thread(new Runnable() {
+//					public void run() {
+//						File f = new File(fileName + ".txt");
+//						if (f.exists()) {
+//							f = new File(fileName + "_" + System.currentTimeMillis() + ".txt");
+//							try {
+//								f.createNewFile();
+//							} catch (IOException e) {
+//								e.printStackTrace();
+//								System.out.println("==============错误：创建文件失败============");
+//							}
+//						} else {
+//							try {
+//								new File("result").mkdirs();
+//								f.createNewFile();
+//							} catch (IOException e) {
+//								e.printStackTrace();
+//							}
+//						}
+//						FileOutputStream fos = null;
+//						try {
+//							fos = new FileOutputStream(f);
+//							fos.write(resultStr.getBytes());
+//							System.out.println("==============结果已经保存到" + f.getAbsolutePath());
+//							JOptionPane.showMessageDialog(null, "成功，结果已经保存到" + f.getAbsolutePath());
+//						} catch (FileNotFoundException e) {
+//							e.printStackTrace();
+//						} catch (IOException e) {
+//							e.printStackTrace();
+//						} finally {
+//							try {
+//								fos.close();
+//							} catch (IOException e) {
+//								e.printStackTrace();
+//							}
+//						}
+//					}
+//				});
+//				t.start();
+//				try {
+//					t.join();
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//				mResult.delete(0, mResult.length());
 			}
 		}
 
@@ -257,6 +267,7 @@ public class AudioToText {
 		}
 
 		public void onEvent(int eventType, int arg1, int agr2, String msg) {
+			System.out.println("on event enter");
 		}
 		
 	}

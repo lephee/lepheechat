@@ -73,4 +73,12 @@ public class Role {
 	public String toString() {
 		return "Role["+nickname+"]";
 	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 }

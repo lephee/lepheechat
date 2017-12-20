@@ -2,7 +2,6 @@ package lephee.chat.server.msg;
 
 import lephee.chat.msgutil.ByteArrayWriter;
 import lephee.chat.msgutil.Msg;
-import lephee.chat.persistence.role.Role;
 
 public class ChatResponseMsg1004 extends Msg {
 

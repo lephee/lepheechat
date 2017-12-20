@@ -2,7 +2,6 @@ package lephee.chat.persistence.role;
 
 import java.util.List;
 
-import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
 import org.mongodb.morphia.Morphia;

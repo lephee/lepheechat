@@ -33,6 +33,7 @@ public class ChatServer {
 
 			// Bind and start to accept incoming connections.
 			ChannelFuture f = b.bind(PORT).sync(); // (7)
+			f.toString();
 			
 			ChatUtil.init();
 			System.out.println("Server Started!");
